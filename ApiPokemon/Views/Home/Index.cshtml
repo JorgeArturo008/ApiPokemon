@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var listaDetalles = (List<PokemonDetalle>)ViewBag.ListaDetalles;
+}
+
+
+<h2>Pokemones</h2>
+
+ <div class="row row-cols-1 row-cols-md-3 g-4">
+
+@foreach (var item in listaDetalles)
+{
+
+  
+  <div class="col">
+    <div class="card">
+      <img src="@item.Sprites.Front_default" class="card-img-top"/>
+      <div class="card-body">
+          <Center>
+        <h5 class="card-title">@item.Name</h5>
+         <p class="card-text"> #@item.Order </p>
+      </Center>
+      </div>
+      <ul>
+                @foreach (var tipos in item.Types)
+                {
+                    <li>@tipos.Type.Name </li>
+                }
+            </ul>
+
+    </div>
+  </div>
+  
+    
+
+}
+
+</div>
+
+
